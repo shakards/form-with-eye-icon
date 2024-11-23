@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css') }}">
+    <!-- Font Awesome Link -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Registration</title>
+
+<style>
+body {
+    background-color: rgb(217, 206, 243); 
+    height: auto;
+    width: auto;
+}
+.contain {
+    margin-top: 5%;
+    margin-left: 5%;
+    background-color: white;
+    height: 500px;
+    width: 90%;
+    padding-top: 25px;
+}
+.img {
+    margin-left: 30px;
+    background-color: rgb(217, 206, 243);
+    height: 450px;
+    width: 40%;
+}
+.logo {
+    margin-left: 13%;
+    padding-top: 10px;
+}
+form {
+    margin-top: -40%;
+    margin-left: 47%;
+    font-size: large;
+    padding-top: -20px;
+}
+form h1, p {
+    text-align: center;
+    margin-left: -22%;
+}
+form input {
+    border: 1px solid black;
+    width: 65%;
+    height: 45px;
+    border-radius: 10px;
+    font: 1em sans-serif;
+    position: relative;
+}
+input::placeholder {
+    padding-left: 5%;
+}
+button {
+    color: white;
+    width: 65%;
+    height: 45px;
+    border: none;
+    background-color: blue;
+    border-radius: 10px;
+}
+.cat {
+    border: 1px solid black;
+    width: 65%;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font: 1em sans-serif;
+    padding-top: 2%;
+}
+.cat a {
+    text-decoration: none;
+}
+.input-container {
+    position: relative;
+    width: 65%;
+    margin-bottom: 15px;
+}
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #000;
+}
+</style>
+</head>
+<body>
+    <div class="contain">
+        <div class="img">
+            <div class="logo"></div>
+        </div>
+        <form action="">
+            <h1>Sign In</h1>
+            <p>Unlock Your World</p>
+            <label for="email">*Email</label><br><br>
+            <input type="text" id="email" name="email" placeholder="Enter your email"><br><br><br>
+
+            <label for="password">*Password</label><br><br>
+            <div class="input-container">
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+                <i class="fa fa-eye eye-icon" id="show-icon"></i> <!-- Open eye (for showing password) -->
+                <i class="fa fa-eye-slash eye-icon" id="hide-icon" style="display:none;"></i> <!-- Closed eye (for hiding password) -->
+            </div>
+            <button type="button" onclick="signIn()">Sign In</button><br><br>
+
+            <div class="cat">
+                <a href="">Create an account</a>
+            </div>
+        </form>
+    </div>
+
+<script>
+    const passwordInput = document.getElementById("password");
+    const showIcon = document.getElementById("show-icon");
+    const hideIcon = document.getElementById("hide-icon");
+
+    // Show password
+    showIcon.addEventListener("click", () => {
+        passwordInput.type = "text";
+        showIcon.style.display = "none";
+        hideIcon.style.display = "inline";
+    });
+
+    // Hide password
+    hideIcon.addEventListener("click", () => {
+        passwordInput.type = "password";
+        hideIcon.style.display = "none";
+        showIcon.style.display = "inline";
+    });
+
+    // Dummy sign-in button handler
+    function signIn() {
+        alert("Sign-in button clicked!");
+    }
+</script>
+</body>
+</html>
